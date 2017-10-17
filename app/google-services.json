@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "934742807495",
+    "firebase_url": "https://opal-a7271.firebaseio.com",
+    "project_id": "opal-a7271",
+    "storage_bucket": "opal-a7271.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934742807495:android:e0038771df645d2f",
+        "android_client_info": {
+          "package_name": "com.sreevidya.opal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934742807495-tppffg7161vb8fsmm1k8dck6m6k1dlnm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sreevidya.opal",
+            "certificate_hash": "51d7481c78e47043be02d0c0c16fe242d51f1c44"
+          }
+        },
+        {
+          "client_id": "934742807495-964vfrjlsi8u7dpglrf2f97lltcf6spi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHdA-xEXjway8A5SIywVIEtMWJluDtrJs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934742807495-964vfrjlsi8u7dpglrf2f97lltcf6spi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
