@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Opal</string>
+    <string name="toast_error_email_empty">Email may not be empty</string>
+    <string name="toast_error_password_empty">Password may not be empty</string>
+    <string name="toast_error_invalid_email">Invalid email</string>
+    <string name="toast_error_long_password">Password too long</string>
+    <string name="toast_error_short_password">Password too short</string>
+    <string name="toast_error_name_empty">Name may not be empty</string>
+    <string name="toast_error_password_mismatch">Passowrds not matching</string>
+    <string name="toast_error_login_failed">Login failed</string>
+    <string name="toast_error_invalid_username_password">Invalid username or password</string>
 </resources>
