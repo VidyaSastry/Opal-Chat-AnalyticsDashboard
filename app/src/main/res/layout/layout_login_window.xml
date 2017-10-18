@@ -4,52 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="@layout/fragment_login">
 
-    <TextView
-        android:id="@+id/tvEmail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvHeader"
-        android:layout_marginTop="8dp"
-        android:gravity="center_horizontal"
-        android:text="E-mail"
-        app:layout_constraintLeft_toLeftOf="@+id/tvHeader"
-        app:layout_constraintRight_toRightOf="@+id/tvHeader"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <EditText
         android:id="@+id/edtEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvEmail"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_edit_text"
         android:gravity="center_horizontal"
         android:hint="example@email.com"
         android:inputType="textEmailAddress"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
-
-    <TextView
-        android:id="@+id/tvPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edtEmail"
-        android:gravity="center_horizontal"
-        android:text="Password"
-        app:layout_constraintLeft_toLeftOf="@+id/edtEmail"
-        app:layout_constraintRight_toRightOf="@+id/edtEmail"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+        app:layout_constraintLeft_toLeftOf="@+id/tvHeader"
+        app:layout_constraintRight_toRightOf="@+id/tvHeader"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <EditText
         android:id="@+id/edtPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvPassword"
+        android:layout_below="@id/edtEmail"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_edit_text"
         android:gravity="center_horizontal"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -59,6 +44,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button"
         android:text="Log in"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -70,6 +56,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button"
         android:text="register"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
