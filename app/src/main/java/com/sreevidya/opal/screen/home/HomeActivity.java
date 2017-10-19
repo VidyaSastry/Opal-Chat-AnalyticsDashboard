@@ -35,8 +35,8 @@ public class HomeActivity extends AppCompatActivity {
         TabLayout tabLayout =
                 (TabLayout) findViewById(R.id.tab_layout);
 
-        tabLayout.addTab(tabLayout.newTab().setText("CHAT_FRAGMENT_TAG"));
-        tabLayout.addTab(tabLayout.newTab().setText("CHAT_FRAGMENT_TAG"));
+        tabLayout.addTab(tabLayout.newTab().setText(CHAT_FRAGMENT_TAG));
+        tabLayout.addTab(tabLayout.newTab().setText(DASHBOARD_FRAGMENT_TAG));
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
@@ -113,9 +113,9 @@ public class HomeActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "CHAT_FRAGMENT_TAG";
+                    return CHAT_FRAGMENT_TAG;
                 case 1:
-                    return "CHAT_FRAGMENT_TAG";
+                    return DASHBOARD_FRAGMENT_TAG;
             }
             return null;
         }

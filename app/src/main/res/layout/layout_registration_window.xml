@@ -58,8 +58,8 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_button"
         android:text="Create Account"
-        app:layout_constraintLeft_toLeftOf="@+id/edtPassword"
-        app:layout_constraintRight_toRightOf="@+id/edtPassword"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
     <Button
@@ -72,7 +72,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_button"
         android:text="Login"
-        app:layout_constraintLeft_toLeftOf="@+id/btnRegister"
-        app:layout_constraintRight_toRightOf="@+id/btnRegister"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 </merge>

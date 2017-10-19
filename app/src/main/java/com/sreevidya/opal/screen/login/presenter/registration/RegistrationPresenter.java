@@ -58,8 +58,8 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
                     }
 
                     @Override
-                    public void onFailure(String s) {
-                        view.makeToast(s);
+                    public void onFailure(Exception e) {
+                        view.makeToast(e.getMessage());
                     }
                 });
     }
@@ -73,8 +73,8 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
                     }
 
                     @Override
-                    public void onFailure(String s) {
-                        view.makeToast(s);
+                    public void onFailure(Exception e) {
+                        view.makeToast(e.getMessage());
                     }
                 });
     }

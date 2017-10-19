@@ -17,6 +17,6 @@ public interface AuthSource {
     interface AuthCallback<C> {
         void onSuccess(C c);
 
-        void onFailure(String s);
+        void onFailure(Exception e);
     }
 }

@@ -32,7 +32,6 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     public void getUser() {
-        view.showProgressIndicator(true);
 
         authSource
                 .getUser(new AuthSource.AuthCallback<User>() {
@@ -43,8 +42,9 @@ public class LoginPresenter implements LoginContract.Presenter {
                     }
 
                     @Override
-                    public void onFailure(String s) {
-                        view.makeToast(s);
+                    public void onFailure(Exception s) {
+                        view.showProgressIndicator(false);
+                        view.makeToast(s.getMessage());
                     }
                 });
 
@@ -63,8 +63,9 @@ public class LoginPresenter implements LoginContract.Presenter {
                     }
 
                     @Override
-                    public void onFailure(String s) {
-                        view.makeToast(s);
+                    public void onFailure(Exception e) {
+                        view.makeToast(e.getMessage());
+                        view.showProgressIndicator(false);
                     }
                 });
     }

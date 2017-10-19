@@ -29,15 +29,28 @@ public class AuthSourceImpl implements AuthSource {
                         if (task.isSuccessful()) {
                             authCallback.onSuccess(null);
                         } else {
-                            authCallback.onFailure("Authentication failed");
+                            authCallback.onFailure(task.getException());
                         }
                     }
                 });
     }
 
     @Override
-    public void attemptLogin(Credentials credentials, AuthCallback<Void> authCallback) {
+    public void attemptLogin(Credentials credentials, final AuthCallback<Void> authCallback) {
+        mFirebaseAuth.signInWithEmailAndPassword(
+                credentials.getEmail(),
+                credentials.getPassword()
+        ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    authCallback.onSuccess(null);
+                } else {
+                    authCallback.onFailure(task.getException());
+                }
 
+            }
+        });
     }
 
     @Override
@@ -65,8 +78,6 @@ public class AuthSourceImpl implements AuthSource {
                     mFirebaseAuth.getCurrentUser().getEmail()
             );
             authCallback.onSuccess(user);
-        } else {
-            authCallback.onFailure("No logged in user available");
         }
 
     }
