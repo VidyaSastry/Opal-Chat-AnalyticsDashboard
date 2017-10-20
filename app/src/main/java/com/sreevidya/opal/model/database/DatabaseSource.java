@@ -2,17 +2,14 @@ package com.sreevidya.opal.model.database;
 
 
 public interface DatabaseSource {
-    void createProfile(Profile profile, DbCallback<Void> dbCallback);
 
-    void getProfile(String uid, DbCallback<Profile> dbCallback);
+    void createMessage(String message, DatabaseCallback<Void> dbCallback);
 
-    void deleteProfile(String uid, DbCallback<Void> dbCallback);
+    void getMessage(String messageId, DatabaseCallback<Void> dbCallback);
 
-    void updateProfile(Profile profile, DbCallback<Profile> dbCallback);
-
-    interface DbCallback<C> {
+    interface DatabaseCallback<C> {
         void onSuccess(C c);
 
-        void onFailure(String s);
+        void onFailure(Exception e);
     }
 }

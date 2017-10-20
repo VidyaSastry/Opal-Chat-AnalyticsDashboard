@@ -73,16 +73,14 @@ public class LoginFragment extends Fragment implements
         if (presenter == null) {
             presenter = new LoginPresenter(this);
         }
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-
         View root = inflater.inflate(R.layout.fragment_login, container, false);
-
         ButterKnife.bind(this, root);
-
         return root;
     }
 

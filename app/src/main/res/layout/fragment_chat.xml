@@ -50,7 +50,7 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:background="@drawable/send_button"
-            android:enabled="false"
+            android:enabled="true"
             android:text="@string/send_button_label" />
 
     </LinearLayout>

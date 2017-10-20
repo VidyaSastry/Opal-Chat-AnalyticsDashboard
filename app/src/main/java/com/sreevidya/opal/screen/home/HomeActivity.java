@@ -1,5 +1,6 @@
 package com.sreevidya.opal.screen.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,9 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.sreevidya.opal.R;
 import com.sreevidya.opal.screen.home.fragments.ChatFragment;
 import com.sreevidya.opal.screen.home.fragments.DashboardFragment;
+import com.sreevidya.opal.screen.login.LoginActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -78,11 +81,20 @@ public class HomeActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            logout();
+            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(intent);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void logout() {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.signOut();
+    }
+
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -94,10 +106,10 @@ public class HomeActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    ChatFragment chatFragment = new ChatFragment();
+                    ChatFragment chatFragment = ChatFragment.newInstance();
                     return chatFragment;
                 case 1:
-                    DashboardFragment dashboardFragment = new DashboardFragment();
+                    DashboardFragment dashboardFragment = DashboardFragment.newInstance();
                     return dashboardFragment;
                 default:
                     return null;
