@@ -5,7 +5,6 @@ import java.util.Calendar;
 
 public class Message {
 
-    private String messageId;
     private String text;
     private String name;
     private String photoUrl;
@@ -14,20 +13,11 @@ public class Message {
     Message() {
     }
 
-    Message(String messageId, String text, String name, String photoUrl) {
-        this.messageId = messageId;
+    public Message(String name, String text, String photoUrl) {
         this.text = text;
         this.name = name;
         this.photoUrl = photoUrl;
         this.created = Calendar.getInstance().getTime().toString();
-    }
-
-    public String getMessageId() {
-        return messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
     }
 
     public String getText() {

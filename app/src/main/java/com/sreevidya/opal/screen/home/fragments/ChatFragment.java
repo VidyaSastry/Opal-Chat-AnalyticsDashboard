@@ -1,6 +1,7 @@
 package com.sreevidya.opal.screen.home.fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,11 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.sreevidya.opal.R;
+import com.sreevidya.opal.model.database.Message;
+import com.sreevidya.opal.screen.home.MessageAdapter;
 import com.sreevidya.opal.screen.home.presenter.chat.ChatContract;
 import com.sreevidya.opal.screen.home.presenter.chat.ChatPresenter;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +36,12 @@ public class ChatFragment extends Fragment
     @BindView(R.id.sendButton)
     Button mButtonSend;
 
+    @BindView(R.id.messageListView)
+    ListView messageListView;
+
     private ChatContract.Presenter presenter;
+
+    private MessageAdapter messageAdapter;
 
     public ChatFragment() {
     }
@@ -48,6 +59,9 @@ public class ChatFragment extends Fragment
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        Context context = getActivity().getApplicationContext();
+        ArrayList<Message> messages = new ArrayList<>();
+        messageAdapter = new MessageAdapter(context, R.layout.item_message_left, messages);
     }
 
     @Override
@@ -70,12 +84,14 @@ public class ChatFragment extends Fragment
     @Override
     public void onResume() {
         super.onResume();
+        messageListView.setAdapter(messageAdapter);
         presenter.subscribe(this);
     }
 
     @Override
     public void onPause() {
         super.onPause();
+        messageAdapter.clear();
         presenter.unsubscribe();
     }
 
@@ -84,8 +100,9 @@ public class ChatFragment extends Fragment
         presenter.onSendClick();
     }
 
+
     @Override
-    public String getMessage() {
+    public String getMessageText() {
         return messageEdt.getText().toString();
     }
 
@@ -108,4 +125,13 @@ public class ChatFragment extends Fragment
     public void setPresenter(ChatContract.Presenter presenter) {
         this.presenter = presenter;
     }
+
+//    private void setAdapter(){
+//        if(messageListView.getAdapter() == null){
+//            messageListView.setAdapter(messageAdapter);
+//        }
+//        else{
+//            messageAdapter.notifyDataSetChanged();
+//        }
+//    }
 }

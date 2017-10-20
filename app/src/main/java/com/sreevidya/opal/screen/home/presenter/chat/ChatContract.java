@@ -7,8 +7,7 @@ public interface ChatContract {
 
     interface View extends BaseContract.View {
 
-        //        void setMessage();
-        String getMessage();
+        String getMessageText();
 
         void setPresenter(Presenter presenter);
 

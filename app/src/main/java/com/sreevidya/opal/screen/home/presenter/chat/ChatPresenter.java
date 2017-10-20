@@ -5,6 +5,7 @@ import com.sreevidya.opal.model.auth.AuthInjector;
 import com.sreevidya.opal.model.auth.AuthSource;
 import com.sreevidya.opal.model.database.DatabaseInjector;
 import com.sreevidya.opal.model.database.DatabaseSource;
+import com.sreevidya.opal.model.database.Message;
 
 public class ChatPresenter implements ChatContract.Presenter {
 
@@ -17,7 +18,6 @@ public class ChatPresenter implements ChatContract.Presenter {
         this.view = view;
         this.databaseSource = DatabaseInjector.getInstance();
         this.authSource = AuthInjector.getInstance();
-
         view.setPresenter(this);
 
     }
@@ -25,8 +25,10 @@ public class ChatPresenter implements ChatContract.Presenter {
 
     @Override
     public void onSendClick() {
-        String messageText = view.getMessage();
-        databaseSource.createMessage(messageText, new DatabaseSource.DatabaseCallback<Void>() {
+        String messageText = view.getMessageText();
+//        FirebaseUser user = authSource.getUser();
+        Message message = new Message("Vidya", messageText, null);
+        databaseSource.createMessage(message, new DatabaseSource.DatabaseCallback<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 view.makeToast("Added to db");
@@ -53,4 +55,6 @@ public class ChatPresenter implements ChatContract.Presenter {
     public boolean isViewVisible() {
         return view != null;
     }
+
+
 }
