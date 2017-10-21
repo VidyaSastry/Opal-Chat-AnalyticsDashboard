@@ -11,14 +11,14 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginEnd="5dp"
-        android:src="@drawable/login_background" />
+        android:src="@drawable/ic_bot" />
 
     <LinearLayout
         android:id="@+id/messageDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="3dp"
-        android:background="@color/colorSecondaryLight"
+        android:background="@drawable/chat_bubble_left"
         android:orientation="vertical"
         android:padding="5dp">
 

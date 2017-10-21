@@ -9,4 +9,6 @@
     <color name="colorSecondaryLight">#706083</color>
     <color name="colorSecondaryDark">#1c102d</color>
     <color name="colorTransparent">#00000000</color>
+    <color name="colorChatBubbleLeft">#b7aec5</color>
+    <color name="colorChatBubbleRight">#5febed</color>
 </resources>

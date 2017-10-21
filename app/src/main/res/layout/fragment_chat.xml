@@ -41,17 +41,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/type_message" />
 
         <Button
             android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_gravity="center"
             android:layout_margin="5dp"
-            android:background="@drawable/send_button"
-            android:enabled="true"
-            android:text="@string/send_button_label" />
+            android:background="@drawable/ic_send"
+            android:enabled="true" />
 
     </LinearLayout>
 
