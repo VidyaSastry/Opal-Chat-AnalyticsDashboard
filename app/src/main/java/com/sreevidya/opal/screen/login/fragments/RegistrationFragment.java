@@ -37,9 +37,6 @@ public class RegistrationFragment extends Fragment implements RegistrationContra
     EditText edtPassword;
 
 
-    @BindView(R.id.btnLogin)
-    Button mButtonLogin;
-
     @BindView(R.id.btnRegister)
     Button mButtonLRegister;
 
@@ -91,11 +88,6 @@ public class RegistrationFragment extends Fragment implements RegistrationContra
     public void onDetach() {
         super.onDetach();
         presenter.unsubscribe();
-    }
-
-    @OnClick(R.id.btnLogin)
-    public void onLoginClick(View view) {
-        presenter.onLoginClick();
     }
 
     @OnClick(R.id.btnRegister)

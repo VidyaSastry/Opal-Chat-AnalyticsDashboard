@@ -1,27 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_login_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background"
+    android:background="@color/colorSecondary"
+    android:orientation="vertical"
     tools:context="com.sreevidya.opal.screen.login.fragments.LoginFragment">
 
     <TextView
         android:id="@+id/tvHeader"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="@string/app_name"
-        android:textColor="@android:color/white"
-        android:textSize="100dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="100sp" />
 
-    <include layout="@layout/layout_login_window" />
+    <LinearLayout
+        android:id="@+id/login_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvHeader"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edit_text"
+            android:gravity="center_horizontal"
+            android:hint="@string/email_text"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edit_text"
+            android:gravity="center_horizontal"
+            android:hint="......."
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:text="Log in"
+                android:textColor="@android:color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/white" />
+
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:text="register"
+                android:textColor="@android:color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+                tools:layout_editor_absoluteY="248dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -35,11 +131,5 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvHeader" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="196dp" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

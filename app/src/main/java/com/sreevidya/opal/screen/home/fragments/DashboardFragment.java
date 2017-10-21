@@ -346,7 +346,7 @@ public class DashboardFragment extends Fragment
 
             set1.setDrawIcons(false);
 
-            set1.setColors(ColorTemplate.MATERIAL_COLORS);
+            set1.setColors(ColorTemplate.VORDIPLOM_COLORS);
 
             ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
             dataSets.add(set1);
@@ -436,14 +436,14 @@ public class DashboardFragment extends Fragment
 
         ArrayList<Integer> colors = new ArrayList<Integer>();
 
-//        for (int c : ColorTemplate.VORDIPLOM_COLORS)
-//            colors.add(c);
-//
+        for (int c : ColorTemplate.VORDIPLOM_COLORS)
+            colors.add(c);
+//////
 //        for (int c : ColorTemplate.JOYFUL_COLORS)
 //            colors.add(c);
 
-        for (int c : ColorTemplate.COLORFUL_COLORS)
-            colors.add(c);
+//        for (int c : ColorTemplate.COLORFUL_COLORS)
+//            colors.add(c);
 
 //        for (int c : ColorTemplate.LIBERTY_COLORS)
 //            colors.add(c);

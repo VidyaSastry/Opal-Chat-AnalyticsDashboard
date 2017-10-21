@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:orientation="vertical">
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="16dp">
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/photo_icon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/login_background" />
+
+    <LinearLayout
         android:id="@+id/messageDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_marginEnd="3dp"
+        android:background="@color/colorSecondaryLight"
+        android:orientation="vertical"
         android:padding="5dp">
-
-        <ImageView
-            android:id="@+id/photo_icon"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/login_background" />
 
         <TextView
             android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/photo_icon"
-            android:layout_weight="0"
+            android:fontFamily="OpenSans-Regular"
             android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/white"
             android:textStyle="bold"
-            tools:text="Name" />
+            tools:text="@string/app_name" />
 
         <ImageView
             android:id="@+id/photoImageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/nameTextView"
-            android:layout_toRightOf="@+id/photo_icon"
             android:adjustViewBounds="true" />
 
         <TextView
@@ -43,11 +44,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/nameTextView"
-            android:layout_toRightOf="@+id/photo_icon"
-            android:layout_weight="0"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
             tools:text="Message" />
-    </RelativeLayout>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="09:20am"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
 
 </LinearLayout>
