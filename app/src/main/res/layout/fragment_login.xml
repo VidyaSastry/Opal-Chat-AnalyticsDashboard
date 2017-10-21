@@ -27,37 +27,65 @@
         android:layout_marginTop="80dp"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/edtEmail"
-            android:layout_width="250dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edit_text"
-            android:gravity="center_horizontal"
-            android:hint="@string/email_text"
-            android:inputType="textEmailAddress"
-            android:padding="10dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:orientation="horizontal">
 
-        <EditText
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:paddingStart="15dp"
+                android:src="@drawable/ic_email" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="@string/email_text"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edit_text"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:paddingLeft="15dp"
+                android:src="@drawable/ic_password" />
+
+            <EditText
             android:id="@+id/edtPassword"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_edit_text"
-            android:gravity="center_horizontal"
-            android:hint="......."
+                android:background="@android:color/transparent"
+                android:hint="Password"
             android:inputType="textPassword"
             android:padding="10dp"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white" />
+
+    </LinearLayout>
 
     </LinearLayout>
 
