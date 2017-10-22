@@ -12,7 +12,8 @@
         android:theme="@style/noAnimTheme">
         <activity
             android:name=".screen.login.LoginActivity"
-            android:theme="@style/LoginScreenTheme">
+            android:theme="@style/LoginScreenTheme"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +24,7 @@
             android:name=".screen.home.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
 
 </manifest>

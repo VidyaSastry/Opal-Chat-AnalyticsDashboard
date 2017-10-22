@@ -7,6 +7,7 @@ import com.sreevidya.opal.model.auth.AuthInjector;
 import com.sreevidya.opal.model.auth.AuthSource;
 import com.sreevidya.opal.model.auth.Credentials;
 import com.sreevidya.opal.model.auth.User;
+import com.sreevidya.opal.model.database.DatabaseInjector;
 import com.sreevidya.opal.model.database.DatabaseSource;
 import com.sreevidya.opal.model.database.Profile;
 
@@ -18,8 +19,7 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
     public RegistrationPresenter(RegistrationContract.View view) {
         this.view = view;
         this.authSource = AuthInjector.getInstance();
-
-
+        this.databaseSource = DatabaseInjector.getInstance();
     }
 
     @VisibleForTesting
@@ -46,15 +46,16 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
         }
     }
 
-    private void attemptRegistration(Credentials credentials) {
+    private void attemptRegistration(final Credentials credentials) {
         view.showProgressIndicator(true);
         authSource
                 .createNewAccount(credentials, new AuthSource.AuthCallback<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        if (isViewVisible()) {
-                            view.showHomeScreen();
-                        }
+                        //if (isViewVisible()) {
+                        //  view.showHomeScreen();
+                        // }
+                        getUser(credentials.getUsername());
                     }
 
                     @Override
@@ -64,17 +65,37 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
                 });
     }
 
-    private void getUser() {
+    private void getUser(final String username) {
         authSource
                 .getUser(new AuthSource.AuthCallback<User>() {
                     @Override
                     public void onSuccess(User user) {
-                        view.showHomeScreen();
+                        //view.showHomeScreen();
+                        view.makeToast(username + " Login success");
+                        user.setName(username);
+                        adddUserToDb(user);
                     }
 
                     @Override
                     public void onFailure(Exception e) {
                         view.makeToast(e.getMessage());
+                    }
+                });
+    }
+
+    private void adddUserToDb(final User user) {
+        databaseSource.addUser(user,
+                new DatabaseSource.DatabaseCallback<Void>() {
+
+                    @Override
+                    public void onSuccess(Void o) {
+                        view.makeToast(user.getName() + " created successfully ");
+                        view.showHomeScreen();
+                    }
+
+                    @Override
+                    public void onFailure(Exception e) {
+                        view.makeToast("Failed to create User in db");
                     }
                 });
     }

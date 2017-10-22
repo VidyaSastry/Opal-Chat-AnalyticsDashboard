@@ -28,7 +28,7 @@
                 card_view:cardCornerRadius="4dp"
                 card_view:cardElevation="5dp">
 
-                <com.github.mikephil.charting.charts.BarChart
+                <com.sreevidya.opal.views.MyBarChart
                     android:id="@+id/verticalBarChart"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />

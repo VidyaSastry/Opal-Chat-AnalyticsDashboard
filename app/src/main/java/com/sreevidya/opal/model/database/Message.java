@@ -1,23 +1,35 @@
 package com.sreevidya.opal.model.database;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class Message {
 
     private String text;
-    private String name;
     private String photoUrl;
     private String created;
+    private boolean isUser;
 
     Message() {
+
     }
 
-    public Message(String name, String text, String photoUrl) {
+    public Message(String text, String photoUrl, boolean isUser) {
         this.text = text;
-        this.name = name;
         this.photoUrl = photoUrl;
-        this.created = Calendar.getInstance().getTime().toString();
+        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a", Locale.UK);
+        this.created = timeFormat.format(Calendar.getInstance().getTime());
+        this.isUser = isUser;
+    }
+
+    public boolean isUser() {
+        return isUser;
+    }
+
+    public void setUser(boolean user) {
+        isUser = user;
     }
 
     public String getText() {
@@ -26,14 +38,6 @@ public class Message {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getPhotoUrl() {
@@ -46,9 +50,5 @@ public class Message {
 
     public String getCreated() {
         return created;
-    }
-
-    public void setCreated(String created) {
-        this.created = created;
     }
 }

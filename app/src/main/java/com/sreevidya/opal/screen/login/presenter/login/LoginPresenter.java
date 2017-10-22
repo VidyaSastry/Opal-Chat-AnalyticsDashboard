@@ -1,8 +1,6 @@
 package com.sreevidya.opal.screen.login.presenter.login;
 
 
-import android.support.annotation.VisibleForTesting;
-
 import com.sreevidya.opal.R;
 import com.sreevidya.opal.model.auth.AuthInjector;
 import com.sreevidya.opal.model.auth.AuthSource;
@@ -23,12 +21,6 @@ public class LoginPresenter implements LoginContract.Presenter {
     public LoginPresenter(LoginContract.View view) {
         this.view = view;
         this.authSource = AuthInjector.getInstance();
-    }
-
-    @VisibleForTesting
-    public LoginPresenter(LoginContract.View view, AuthSource authSource) {
-        this.view = view;
-        this.authSource = authSource;
     }
 
     public void getUser() {

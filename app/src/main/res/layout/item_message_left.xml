@@ -4,6 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginEnd="10dp"
+    android:layout_marginStart="16dp"
     android:layout_marginTop="16dp">
 
     <ImageView
@@ -23,38 +24,19 @@
         android:padding="5dp">
 
         <TextView
-            android:id="@+id/nameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="OpenSans-Regular"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            tools:text="@string/app_name" />
-
-        <ImageView
-            android:id="@+id/photoImageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/nameTextView"
-            android:adjustViewBounds="true" />
-
-        <TextView
             android:id="@+id/messageTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/nameTextView"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@android:color/white"
+            android:textIsSelectable="true"
             tools:text="Message" />
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/timeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:text="09:20am"
-            android:textColor="@android:color/white" />
+            android:layout_gravity="end"
+            android:textAppearance="?android:textAppearanceSmall" />
     </LinearLayout>
 
 

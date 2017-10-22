@@ -1,27 +1,29 @@
 package com.sreevidya.opal.screen.home.fragments;
 
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.sreevidya.opal.R;
 import com.sreevidya.opal.model.database.Message;
-import com.sreevidya.opal.screen.home.MessageAdapter;
 import com.sreevidya.opal.screen.home.presenter.chat.ChatContract;
 import com.sreevidya.opal.screen.home.presenter.chat.ChatPresenter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +39,7 @@ public class ChatFragment extends Fragment
     Button mButtonSend;
 
     @BindView(R.id.messageListView)
-    ListView messageListView;
+    RecyclerView messageListView;
 
     private ChatContract.Presenter presenter;
 
@@ -59,9 +61,8 @@ public class ChatFragment extends Fragment
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        Context context = getActivity().getApplicationContext();
-        ArrayList<Message> messages = new ArrayList<>();
-        messageAdapter = new MessageAdapter(context, R.layout.item_message_left, messages);
+        messageAdapter = new MessageAdapter();
+
     }
 
     @Override
@@ -71,6 +72,12 @@ public class ChatFragment extends Fragment
         if (presenter == null) {
             presenter = new ChatPresenter(this);
         }
+
+        setupUI(this.getView());
+
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setStackFromEnd(true);
+        messageListView.setLayoutManager(linearLayoutManager);
     }
 
     @Nullable
@@ -91,7 +98,6 @@ public class ChatFragment extends Fragment
     @Override
     public void onPause() {
         super.onPause();
-        messageAdapter.clear();
         presenter.unsubscribe();
     }
 
@@ -126,12 +132,56 @@ public class ChatFragment extends Fragment
         this.presenter = presenter;
     }
 
-//    private void setAdapter(){
-//        if(messageListView.getAdapter() == null){
-//            messageListView.setAdapter(messageAdapter);
-//        }
-//        else{
-//            messageAdapter.notifyDataSetChanged();
-//        }
-//    }
+    @Override
+    public void setMessages(List<Message> messages) {
+
+        messageAdapter.setMessages(messages);
+    }
+
+    @Override
+    public void addMessage(Message m) {
+        messageAdapter.append(m);
+        messageListView.post(new Runnable() {
+            @Override
+            public void run() {
+                messageListView.smoothScrollToPosition(messageAdapter.getItemCount());
+            }
+        });
+    }
+
+
+    @Override
+    public void clearField() {
+        messageEdt.setText("");
+    }
+
+    public void hideKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public void setupUI(View view) {
+
+        // Set up touch listener for non-text box views to hide keyboard.
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideKeyboard(getActivity());
+                    return false;
+                }
+            });
+        }
+
+        //If a layout container, iterate over children and seed recursion.
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupUI(innerView);
+            }
+        }
+    }
+
 }

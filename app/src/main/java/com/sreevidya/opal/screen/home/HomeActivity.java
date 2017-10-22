@@ -1,5 +1,6 @@
 package com.sreevidya.opal.screen.home;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -11,6 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.sreevidya.opal.R;
@@ -66,7 +72,7 @@ public class HomeActivity extends AppCompatActivity {
 
         });
 
-
+        setupUI(findViewById(R.id.main_content));
     }
 
 
@@ -82,9 +88,8 @@ public class HomeActivity extends AppCompatActivity {
 
         if (id == R.id.action_settings) {
             logout();
-            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
-            startActivity(intent);
-            return true;
+            finishAffinity();
+            startActivity(new Intent(HomeActivity.this, LoginActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -93,6 +98,32 @@ public class HomeActivity extends AppCompatActivity {
     public void logout() {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.signOut();
+    }
+
+    public void hideKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public void setupUI(View view) {
+
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideKeyboard(HomeActivity.this);
+                    return false;
+                }
+            });
+        }
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupUI(innerView);
+            }
+        }
     }
 
 
@@ -131,5 +162,6 @@ public class HomeActivity extends AppCompatActivity {
             }
             return null;
         }
+
     }
 }

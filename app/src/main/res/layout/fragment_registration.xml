@@ -9,6 +9,7 @@
         android:id="@+id/tvHeader"
         android:layout_width="250dp"
         android:layout_height="150dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:gravity="center"
@@ -19,64 +20,112 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvHeader"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/edtName"
-            android:layout_width="250dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edit_text"
-            android:gravity="center_horizontal"
-            android:hint="@string/username"
-            android:inputType="textEmailAddress"
-            android:padding="10dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/edtEmail"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_edit_text"
-            android:gravity="center_horizontal"
-            android:hint="@string/email_text"
-            android:inputType="textEmailAddress"
-            android:padding="10dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:paddingLeft="15dp"
+                android:src="@drawable/ic_user" />
 
-        <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="250dp"
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="@string/username"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
+
+            <requestFocus />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/rounded_edit_text"
-            android:gravity="center_horizontal"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white" />
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:paddingStart="15dp"
+                android:src="@drawable/ic_email" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="@string/email_text"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edit_text"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:paddingLeft="15dp"
+                android:src="@drawable/ic_password" />
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/buttons_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_below="@id/login_details">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:orientation="vertical">
@@ -106,6 +155,7 @@
         </LinearLayout>
 
     </LinearLayout>
+    </RelativeLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -113,6 +163,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progress"
         android:visibility="invisible" />
 
 

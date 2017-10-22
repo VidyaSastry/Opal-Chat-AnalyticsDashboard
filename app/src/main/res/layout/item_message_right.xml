@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
+    android:layout_marginEnd="16dp"
     android:layout_marginTop="16dp">
 
     <LinearLayout
@@ -21,37 +21,27 @@
             android:orientation="vertical"
             android:padding="5dp">
 
-            <TextView
-                android:id="@+id/nameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textStyle="bold"
-                tools:text="Name" />
-
             <ImageView
                 android:id="@+id/photoImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/nameTextView"
                 android:adjustViewBounds="true" />
 
             <TextView
                 android:id="@+id/messageTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/nameTextView"
                 android:layout_weight="0"
                 android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textIsSelectable="true"
                 tools:text="Message" />
 
             <TextView
-                android:id="@+id/time"
+                android:id="@+id/timeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="09:20am"
-                android:textColor="@android:color/black" />
+                android:layout_gravity="end"
+                android:textAppearance="?android:textAppearanceSmall" />
         </LinearLayout>
 
         <ImageView
@@ -59,7 +49,7 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_marginStart="3dp"
-            android:src="@drawable/ic_user" />
+            android:src="@drawable/ic_user_profile" />
 
     </LinearLayout>
 

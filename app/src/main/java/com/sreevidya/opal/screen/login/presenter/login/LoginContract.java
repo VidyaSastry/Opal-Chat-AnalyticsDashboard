@@ -5,6 +5,7 @@ import com.sreevidya.opal.model.auth.Credentials;
 import com.sreevidya.opal.screen.login.presenter.BaseContract;
 
 public interface LoginContract {
+
     interface View extends BaseContract.View {
 
         String getEmail();
@@ -25,7 +26,6 @@ public interface LoginContract {
         void onLoginClick();
 
         void onRegisterClick();
-
 
     }
 }

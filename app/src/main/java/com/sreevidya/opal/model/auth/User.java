@@ -3,12 +3,18 @@ package com.sreevidya.opal.model.auth;
 public class User {
 
     private String uid, name, email;
+    //private List<Message> MESSAGES = new ArrayList<>();
+
+    public User() {
+
+    }
 
     public User(String uid, String name, String email) {
         this.uid = uid;
         this.name = name;
         this.email = email;
     }
+
 
     public String getUid() {
         return uid;
@@ -33,4 +39,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }

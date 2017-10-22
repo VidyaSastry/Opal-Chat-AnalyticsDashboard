@@ -37,6 +37,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.sreevidya.opal.R;
 import com.sreevidya.opal.screen.home.presenter.dashboard.DashboardContract;
 import com.sreevidya.opal.screen.home.presenter.dashboard.DashboardPresenter;
+import com.sreevidya.opal.views.MyBarChart;
 
 import java.util.ArrayList;
 
@@ -48,7 +49,7 @@ public class DashboardFragment extends Fragment
 
 
     @BindView(R.id.verticalBarChart)
-    BarChart verticalBarChart;
+    MyBarChart verticalBarChart;
 
     @BindView(R.id.horizontalBarChart)
     HorizontalBarChart horizontalBarChart;
@@ -132,39 +133,7 @@ public class DashboardFragment extends Fragment
 
     @Override
     public void showVerticalBarChart() {
-        verticalBarChart.setDrawBarShadow(false);
-        verticalBarChart.setDrawValueAboveBar(true);
-        verticalBarChart.getDescription().setEnabled(false);
-        verticalBarChart.setMaxVisibleValueCount(60);
-        verticalBarChart.setDrawGridBackground(false);
 
-        XAxis xAxis = verticalBarChart.getXAxis();
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setDrawGridLines(false);
-        xAxis.setGranularity(1f); // only intervals of 1 day
-        xAxis.setLabelCount(7);
-
-        YAxis leftAxis = verticalBarChart.getAxisLeft();
-        leftAxis.setLabelCount(8, false);
-        leftAxis.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
-        leftAxis.setSpaceTop(15f);
-        leftAxis.setAxisMinimum(0f); // this replaces setStartAtZero(true)
-
-        YAxis rightAxis = verticalBarChart.getAxisRight();
-        rightAxis.setDrawGridLines(false);
-        rightAxis.setLabelCount(8, false);
-        rightAxis.setSpaceTop(15f);
-        rightAxis.setAxisMinimum(0f); // this replaces setStartAtZero(true)
-
-        Legend l = verticalBarChart.getLegend();
-        l.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
-        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
-        l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
-        l.setDrawInside(false);
-        l.setForm(Legend.LegendForm.SQUARE);
-        l.setFormSize(9f);
-        l.setTextSize(11f);
-        l.setXEntrySpace(4f);
 
 
         setBarData(12, 50, verticalBarChart);
@@ -318,20 +287,7 @@ public class DashboardFragment extends Fragment
 
     private void setBarData(int count, float range, BarChart barChart) {
 
-        float start = 1f;
-
-        ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
-
-        for (int i = (int) start; i < start + count + 1; i++) {
-            float mult = (range + 1);
-            float val = (float) (Math.random() * mult);
-
-            if (Math.random() * 100 < 25) {
-                yVals1.add(new BarEntry(i, val, getResources().getDrawable(R.drawable.login_background)));
-            } else {
-                yVals1.add(new BarEntry(i, val));
-            }
-        }
+        ArrayList<BarEntry> yVals1 = com.sreevidya.opal.data.ChartData.getBatData(count, range);
 
         BarDataSet set1;
 
@@ -343,18 +299,13 @@ public class DashboardFragment extends Fragment
             barChart.notifyDataSetChanged();
         } else {
             set1 = new BarDataSet(yVals1, "The year 2017");
-
             set1.setDrawIcons(false);
-
             set1.setColors(ColorTemplate.VORDIPLOM_COLORS);
-
             ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
             dataSets.add(set1);
-
             BarData data = new BarData(dataSets);
             data.setValueTextSize(10f);
             data.setBarWidth(0.9f);
-
             barChart.setData(data);
         }
     }
