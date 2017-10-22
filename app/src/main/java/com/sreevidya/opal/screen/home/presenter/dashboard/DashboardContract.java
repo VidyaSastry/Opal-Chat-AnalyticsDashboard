@@ -7,17 +7,13 @@ public interface DashboardContract {
     interface View extends BaseContract.View {
 
 
-        void setAxis();
-
         void showVerticalBarChart();
 
         void showHorizontalBarChart();
 
         void showSingleLineChart();
 
-        void setLineData(int count, float range);
-
-        void showDualLineChart();
+        void showDuoLineChart();
 
         void showPieChart();
 
