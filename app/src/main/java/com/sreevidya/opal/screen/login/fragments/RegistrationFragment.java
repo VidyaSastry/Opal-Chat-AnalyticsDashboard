@@ -76,11 +76,8 @@ public class RegistrationFragment extends Fragment implements RegistrationContra
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-
         View root = inflater.inflate(R.layout.fragment_registration, container, false);
-
         ButterKnife.bind(this, root);
-
         return root;
     }
 

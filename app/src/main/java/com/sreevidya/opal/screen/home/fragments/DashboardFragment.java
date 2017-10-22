@@ -45,7 +45,6 @@ import butterknife.ButterKnife;
 public class DashboardFragment extends Fragment
         implements DashboardContract.View {
 
-
     @BindView(R.id.verticalBarChart)
     MyBarChart verticalBarChart;
 

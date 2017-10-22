@@ -9,7 +9,6 @@ import com.sreevidya.opal.model.auth.Credentials;
 import com.sreevidya.opal.model.auth.User;
 import com.sreevidya.opal.model.database.DatabaseInjector;
 import com.sreevidya.opal.model.database.DatabaseSource;
-import com.sreevidya.opal.model.database.Profile;
 
 public class RegistrationPresenter implements RegistrationContract.Presenter {
     private AuthSource authSource;
@@ -52,14 +51,12 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
                 .createNewAccount(credentials, new AuthSource.AuthCallback<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        //if (isViewVisible()) {
-                        //  view.showHomeScreen();
-                        // }
                         getUser(credentials.getUsername());
                     }
 
                     @Override
                     public void onFailure(Exception e) {
+                        view.showProgressIndicator(false);
                         view.makeToast(e.getMessage());
                     }
                 });
@@ -78,6 +75,7 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
 
                     @Override
                     public void onFailure(Exception e) {
+                        view.showProgressIndicator(false);
                         view.makeToast(e.getMessage());
                     }
                 });
@@ -96,18 +94,11 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
                     @Override
                     public void onFailure(Exception e) {
                         view.makeToast("Failed to create User in db");
+                        view.showProgressIndicator(false);
                     }
                 });
     }
 
-    private void addUserProfileToDatabase(String uid, String email) {
-
-        Profile profile = new Profile(
-                uid,
-                view.getName(),
-                email
-        );
-    }
 
 
     private boolean validateAccountCredentials() {
