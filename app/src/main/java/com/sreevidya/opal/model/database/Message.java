@@ -8,7 +8,6 @@ import java.util.Locale;
 public class Message {
 
     private String text;
-    private String photoUrl;
     private String created;
     private boolean isUser;
 
@@ -16,9 +15,8 @@ public class Message {
 
     }
 
-    public Message(String text, String photoUrl, boolean isUser) {
+    public Message(String text, boolean isUser) {
         this.text = text;
-        this.photoUrl = photoUrl;
         SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a", Locale.UK);
         this.created = timeFormat.format(Calendar.getInstance().getTime());
         this.isUser = isUser;
@@ -38,14 +36,6 @@ public class Message {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public String getPhotoUrl() {
-        return photoUrl;
-    }
-
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
     }
 
     public String getCreated() {

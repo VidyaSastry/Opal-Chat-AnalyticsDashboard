@@ -32,17 +32,14 @@ import butterknife.OnClick;
 public class ChatFragment extends Fragment
         implements ChatContract.View {
 
+    private static final int RC_PHOTO_PICKER = 1;
     @BindView(R.id.messageEditText)
     EditText messageEdt;
-
     @BindView(R.id.sendButton)
     Button mButtonSend;
-
     @BindView(R.id.messageListView)
     RecyclerView messageListView;
-
     private ChatContract.Presenter presenter;
-
     private MessageAdapter messageAdapter;
 
     public ChatFragment() {
@@ -106,7 +103,6 @@ public class ChatFragment extends Fragment
         presenter.onSendClick();
     }
 
-
     @Override
     public String getMessageText() {
         return messageEdt.getText().toString();
@@ -162,6 +158,7 @@ public class ChatFragment extends Fragment
         inputMethodManager.hideSoftInputFromWindow(
                 activity.getCurrentFocus().getWindowToken(), 0);
     }
+
 
     public void setupUI(View view) {
 

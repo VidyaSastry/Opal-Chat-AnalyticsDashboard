@@ -27,19 +27,12 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1">
 
-        <ImageButton
-            android:id="@+id/photoPickerButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:background="@android:drawable/ic_menu_gallery" />
-
         <EditText
             android:id="@+id/messageEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:hint="@string/type_message" />

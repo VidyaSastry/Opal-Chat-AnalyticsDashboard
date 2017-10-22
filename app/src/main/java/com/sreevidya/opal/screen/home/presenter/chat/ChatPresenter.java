@@ -58,7 +58,7 @@ public class ChatPresenter implements ChatContract.Presenter {
 
     private void addMessage(final String messageText, final boolean isUser) {
 
-        Message message = new Message(messageText, null, isUser);
+        Message message = new Message(messageText, isUser);
         databaseSource.createMessage(
                 user.getUid(),
                 message,
