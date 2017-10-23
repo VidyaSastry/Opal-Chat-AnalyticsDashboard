@@ -2,7 +2,6 @@ package com.sreevidya.opal.model.database;
 
 
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,12 +17,14 @@ import java.util.List;
 
 public class DatabaseSourceImpl implements DatabaseSource {
 
+    private final String USERS = "USERS";
+    private final String MESSAGES = "MESSAGES";
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference dbReference;
 
     DatabaseSourceImpl() {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        dbReference = mFirebaseDatabase.getReference().child("USERS");
+        dbReference = mFirebaseDatabase.getReference().child(USERS);
     }
 
     @Override
@@ -33,7 +34,7 @@ public class DatabaseSourceImpl implements DatabaseSource {
             final DatabaseCallback<Message> dbCallback) {
         dbReference
                 .child(uid)
-                .child("MESSAGES")
+                .child(MESSAGES)
                 .push()
                 .setValue(message)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -60,7 +61,6 @@ public class DatabaseSourceImpl implements DatabaseSource {
                         if (task.isSuccessful()) {
                             dbCallback.onSuccess(null);
                         } else {
-                            Log.e("DBServiceImpl", "onFailure: ", task.getException());
                             dbCallback.onFailure(task.getException());
                         }
                     }
@@ -80,7 +80,7 @@ public class DatabaseSourceImpl implements DatabaseSource {
                     }
                 }
                 dbReference.child(u.getUid())
-                        .child("MESSAGES").removeEventListener(this);
+                        .child(MESSAGES).removeEventListener(this);
                 dbCallback.onSuccess(messages);
             }
 
@@ -90,7 +90,7 @@ public class DatabaseSourceImpl implements DatabaseSource {
             }
         };
         dbReference.child(u.getUid())
-                .child("MESSAGES")
+                .child(MESSAGES)
                 .addValueEventListener(listener);
     }
 }

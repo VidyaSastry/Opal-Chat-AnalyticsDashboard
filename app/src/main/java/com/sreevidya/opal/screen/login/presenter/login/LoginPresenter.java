@@ -6,15 +6,11 @@ import com.sreevidya.opal.model.auth.AuthInjector;
 import com.sreevidya.opal.model.auth.AuthSource;
 import com.sreevidya.opal.model.auth.Credentials;
 import com.sreevidya.opal.model.auth.User;
-import com.sreevidya.opal.model.database.DatabaseSource;
-import com.sreevidya.opal.model.database.Profile;
 
 
 public class LoginPresenter implements LoginContract.Presenter {
-    public static final String TAG = "LoginPresenter";
 
     private AuthSource authSource;
-    private DatabaseSource databaseSource;
 
     private LoginContract.View view;
 
@@ -56,7 +52,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
                     @Override
                     public void onFailure(Exception e) {
-                        view.makeToast(e.getMessage());
+                        view.makeToast(R.string.toast_login_wrong_credentials);
                         view.showProgressIndicator(false);
                     }
                 });
@@ -102,7 +98,4 @@ public class LoginPresenter implements LoginContract.Presenter {
         this.view = null;
     }
 
-    private void registerUser(User user) {
-        Profile profile = new Profile(user.getUid(), user.getName(), user.getEmail());
-    }
 }

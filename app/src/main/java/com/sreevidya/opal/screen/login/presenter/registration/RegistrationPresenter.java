@@ -1,7 +1,5 @@
 package com.sreevidya.opal.screen.login.presenter.registration;
 
-import android.support.annotation.VisibleForTesting;
-
 import com.sreevidya.opal.R;
 import com.sreevidya.opal.model.auth.AuthInjector;
 import com.sreevidya.opal.model.auth.AuthSource;
@@ -21,18 +19,6 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
         this.databaseSource = DatabaseInjector.getInstance();
     }
 
-    @VisibleForTesting
-    RegistrationPresenter(RegistrationContract.View view, AuthSource authSource, DatabaseSource databaseSource) {
-        this.view = view;
-        this.authSource = authSource;
-        this.databaseSource = databaseSource;
-    }
-
-    @Override
-    public void onLoginClick() {
-        view.makeToast("Login clicked");
-        view.showLoginScreen();
-    }
 
     @Override
     public void onRegisterClick() {
@@ -67,8 +53,6 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
                 .getUser(new AuthSource.AuthCallback<User>() {
                     @Override
                     public void onSuccess(User user) {
-                        //view.showHomeScreen();
-                        view.makeToast(username + " Login success");
                         user.setName(username);
                         adddUserToDb(user);
                     }
@@ -87,14 +71,13 @@ public class RegistrationPresenter implements RegistrationContract.Presenter {
 
                     @Override
                     public void onSuccess(Void o) {
-                        view.makeToast(user.getName() + " created successfully ");
                         view.showHomeScreen();
                     }
 
                     @Override
                     public void onFailure(Exception e) {
-                        view.makeToast("Failed to create User in db");
                         view.showProgressIndicator(false);
+                        view.makeToast(e.getMessage());
                     }
                 });
     }

@@ -54,21 +54,6 @@ public class AuthSourceImpl implements AuthSource {
     }
 
     @Override
-    public void deleteUser(AuthCallback<Void> authCallback) {
-
-    }
-
-    @Override
-    public void logoutUser(AuthCallback<Void> authCallback) {
-        mFirebaseAuth.signOut();
-    }
-
-    @Override
-    public void reAuthenticateUser(String password, AuthCallback<User> authCallback) {
-
-    }
-
-    @Override
     public void getUser(AuthCallback<User> authCallback) {
         FirebaseUser fUser = mFirebaseAuth.getCurrentUser();
         if (fUser != null) {
@@ -79,6 +64,5 @@ public class AuthSourceImpl implements AuthSource {
             );
             authCallback.onSuccess(user);
         }
-
     }
 }

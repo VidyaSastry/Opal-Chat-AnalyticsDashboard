@@ -37,29 +37,20 @@ public class MyLineChart extends LineChart {
         XAxis xAxis = getXAxis();
         xAxis.enableGridDashedLine(10f, 10f, 0f);
 
-        LimitLine ll1 = new LimitLine(150f, "Upper Limit");
-        ll1.setLineWidth(4f);
+        LimitLine ll1 = new LimitLine(80f, "Avg");
+        ll1.setLineWidth(1f);
         ll1.enableDashedLine(10f, 10f, 0f);
         ll1.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
         ll1.setTextSize(10f);
 
-        LimitLine ll2 = new LimitLine(-30f, "Lower Limit");
-        ll2.setLineWidth(4f);
-        ll2.enableDashedLine(10f, 10f, 0f);
-        ll2.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
-        ll2.setTextSize(10f);
-
         YAxis leftAxis = getAxisLeft();
-        leftAxis.removeAllLimitLines(); // reset all limit lines to avoid overlapping lines
+        leftAxis.removeAllLimitLines();
         leftAxis.addLimitLine(ll1);
-        leftAxis.addLimitLine(ll2);
-        leftAxis.setAxisMaximum(200f);
-        leftAxis.setAxisMinimum(-50f);
-        //leftAxis.setYOffset(20f);
+        leftAxis.setAxisMaximum(160f);
+        leftAxis.setAxisMinimum(0f);
         leftAxis.enableGridDashedLine(10f, 10f, 0f);
         leftAxis.setDrawZeroLine(false);
 
-        // limit lines are drawn behind data (and not on top)
         leftAxis.setDrawLimitLinesBehindData(true);
 
         getAxisRight().setEnabled(false);

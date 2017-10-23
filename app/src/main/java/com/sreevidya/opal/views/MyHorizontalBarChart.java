@@ -40,8 +40,7 @@ public class MyHorizontalBarChart extends HorizontalBarChart {
         YAxis yl = getAxisLeft();
         yl.setDrawAxisLine(true);
         yl.setDrawGridLines(true);
-        yl.setAxisMinimum(0f); // this replaces setStartAtZero(true)
-//        yl.setInverted(true);
+        yl.setAxisMinimum(0f);
 
         YAxis yr = getAxisRight();
         yr.setDrawAxisLine(true);

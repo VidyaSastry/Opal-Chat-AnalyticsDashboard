@@ -31,28 +31,29 @@ public class ChatPresenter implements ChatContract.Presenter {
     @Override
     public void onSendClick() {
         final String messageText = view.getMessageText();
-        view.clearField();
-        // send req to clbot
-        // add res to db
-        addMessage(messageText, true);
+        if (!messageText.isEmpty()) {
+            view.clearField();
 
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                BotStuff.getResponse(messageText,
-                        new BotStuff.BotCallback<String>() {
-                            @Override
-                            public void onSuccess(String s) {
-                                addMessage(s, false);
-                            }
+            addMessage(messageText, true);
 
-                            @Override
-                            public void onFailure(String e) {
-                                view.makeToast(e);
-                            }
-                        });
-            }
-        }, 1000);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    BotStuff.getResponse(messageText,
+                            new BotStuff.BotCallback<String>() {
+                                @Override
+                                public void onSuccess(String s) {
+                                    addMessage(s, false);
+                                }
+
+                                @Override
+                                public void onFailure(String e) {
+                                    view.makeToast(e);
+                                }
+                            });
+                }
+            }, 500);
+        }
 
     }
 
@@ -65,7 +66,6 @@ public class ChatPresenter implements ChatContract.Presenter {
                 new DatabaseSource.DatabaseCallback<Message>() {
                     @Override
                     public void onSuccess(Message m) {
-                        view.makeToast("Added to db");
                         view.addMessage(m);
                     }
 

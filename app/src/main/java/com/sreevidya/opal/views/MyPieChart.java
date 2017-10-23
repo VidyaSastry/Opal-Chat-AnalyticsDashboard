@@ -42,7 +42,6 @@ public class MyPieChart extends PieChart {
         setDrawCenterText(true);
 
         setRotationAngle(0);
-        // enable rotation of the chart by touch
         setRotationEnabled(true);
         setHighlightPerTapEnabled(true);
 
@@ -56,7 +55,6 @@ public class MyPieChart extends PieChart {
         l.setYEntrySpace(0f);
         l.setYOffset(0f);
 
-        // entry label styling
         setEntryLabelColor(Color.BLACK);
         setEntryLabelTextSize(12f);
     }

@@ -10,9 +10,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-/**
- * Created by Vidya on 10/21/17.
- */
 
 @RunWith(MockitoJUnitRunner.class)
 public class LoginPresenterTest {

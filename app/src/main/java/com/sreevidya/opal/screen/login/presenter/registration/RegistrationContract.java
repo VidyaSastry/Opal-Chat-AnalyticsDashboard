@@ -11,16 +11,12 @@ public interface RegistrationContract {
 
         String getPassword();
 
-        void showLoginScreen();
-
         void showHomeScreen();
 
         void showProgressIndicator(boolean show);
     }
 
     interface Presenter extends BaseContract.Presenter<View> {
-
-        void onLoginClick();
 
         void onRegisterClick();
     }

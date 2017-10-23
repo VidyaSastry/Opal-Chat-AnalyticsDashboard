@@ -12,7 +12,7 @@ public class ChartData {
     public static ArrayList<BarEntry> getBarData(int count, float range) {
         float start = 1f;
 
-        ArrayList<BarEntry> yValues = new ArrayList<BarEntry>();
+        ArrayList<BarEntry> yValues = new ArrayList<>();
 
         for (int i = (int) start; i < start + count + 1; i++) {
             float mult = (range + 1);
@@ -37,10 +37,10 @@ public class ChartData {
     public static ArrayList<PieEntry> getPieData(int count, float range) {
         ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
         String[] mParties = new String[count];
-        mParties[0] = "One";
-        mParties[1] = "Two";
-        mParties[2] = "Three";
-        mParties[3] = "Four";
+        mParties[0] = "Week 1";
+        mParties[1] = "Week 2";
+        mParties[2] = "Week 3";
+        mParties[3] = "Week 4";
 
         for (int i = 0; i < count; i++) {
             entries.add(new PieEntry((float) ((Math.random() * range) + range / 5),

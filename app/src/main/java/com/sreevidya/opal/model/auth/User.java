@@ -3,7 +3,6 @@ package com.sreevidya.opal.model.auth;
 public class User {
 
     private String uid, name, email;
-    //private List<Message> MESSAGES = new ArrayList<>();
 
     public User() {
 

@@ -22,7 +22,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-//import com.sreevidya.opal.screen.login.presenter.registration.Reg
 
 public class RegistrationFragment extends Fragment implements RegistrationContract.View {
     public static final String TAG = "RegistrationFragment";
@@ -105,11 +104,6 @@ public class RegistrationFragment extends Fragment implements RegistrationContra
     @Override
     public String getPassword() {
         return edtPassword.getText().toString();
-    }
-
-    @Override
-    public void showLoginScreen() {
-        screenSwitcher.switchToLogin();
     }
 
     @Override

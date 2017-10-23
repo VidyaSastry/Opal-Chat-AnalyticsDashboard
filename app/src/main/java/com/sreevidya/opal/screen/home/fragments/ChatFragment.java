@@ -32,7 +32,6 @@ import butterknife.OnClick;
 public class ChatFragment extends Fragment
         implements ChatContract.View {
 
-    private static final int RC_PHOTO_PICKER = 1;
     @BindView(R.id.messageEditText)
     EditText messageEdt;
     @BindView(R.id.sendButton)
@@ -162,8 +161,7 @@ public class ChatFragment extends Fragment
 
     public void setupUI(View view) {
 
-        // Set up touch listener for non-text box views to hide keyboard.
-        if (!(view instanceof EditText)) {
+        if (!(view instanceof EditText) && !(view instanceof Button)) {
             view.setOnTouchListener(new View.OnTouchListener() {
                 public boolean onTouch(View v, MotionEvent event) {
                     hideKeyboard(getActivity());
@@ -172,7 +170,6 @@ public class ChatFragment extends Fragment
             });
         }
 
-        //If a layout container, iterate over children and seed recursion.
         if (view instanceof ViewGroup) {
             for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
                 View innerView = ((ViewGroup) view).getChildAt(i);

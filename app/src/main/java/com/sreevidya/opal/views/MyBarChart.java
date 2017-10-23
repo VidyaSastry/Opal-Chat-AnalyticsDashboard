@@ -8,9 +8,6 @@ import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 
-/**
- * Created by Vidya on 10/21/17.
- */
 
 public class MyBarChart extends BarChart {
 
@@ -39,20 +36,20 @@ public class MyBarChart extends BarChart {
         XAxis xAxis = getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
-        xAxis.setGranularity(1f); // only intervals of 1 day
+        xAxis.setGranularity(1f);
         xAxis.setLabelCount(7);
 
         YAxis leftAxis = getAxisLeft();
         leftAxis.setLabelCount(8, false);
         leftAxis.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
         leftAxis.setSpaceTop(15f);
-        leftAxis.setAxisMinimum(0f); // this replaces setStartAtZero(true)
+        leftAxis.setAxisMinimum(0f);
 
         YAxis rightAxis = getAxisRight();
         rightAxis.setDrawGridLines(false);
         rightAxis.setLabelCount(8, false);
         rightAxis.setSpaceTop(15f);
-        rightAxis.setAxisMinimum(0f); // this replaces setStartAtZero(true)
+        rightAxis.setAxisMinimum(0f);
 
         Legend l = getLegend();
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
@@ -64,8 +61,5 @@ public class MyBarChart extends BarChart {
         l.setTextSize(11f);
         l.setXEntrySpace(4f);
 
-//        if(isInEditMode()){
-//
-//        }
     }
 }

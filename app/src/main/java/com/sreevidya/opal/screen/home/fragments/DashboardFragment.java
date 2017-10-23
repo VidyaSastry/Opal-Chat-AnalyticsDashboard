@@ -144,12 +144,12 @@ public class DashboardFragment extends Fragment
 
     @Override
     public void showSingleLineChart() {
-        setLineData(10, 100, lineChart);
+        setLineData(12, 100, lineChart);
     }
 
     @Override
     public void showDuoLineChart() {
-        setDuoLineData(10, 100, dualLineChart);
+        setDuoLineData(30, 100, dualLineChart);
     }
 
     @Override
@@ -170,7 +170,7 @@ public class DashboardFragment extends Fragment
             lineChart.getData().notifyDataChanged();
             lineChart.notifyDataSetChanged();
         } else {
-            set1 = new LineDataSet(values, "DataSet 1");
+            set1 = new LineDataSet(values, "Monthly spend");
             set1.setDrawIcons(false);
             set1.setAxisDependency(YAxis.AxisDependency.LEFT);
             set1.setColor(ColorTemplate.getHoloBlue());
@@ -181,11 +181,11 @@ public class DashboardFragment extends Fragment
             set1.setFillColor(ColorTemplate.getHoloBlue());
             set1.setHighLightColor(Color.rgb(244, 117, 117));
             set1.setDrawCircleHole(false);
+            set1.setDrawValues(false);
 
             ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
             dataSets.add(set1);
             LineData data = new LineData(dataSets);
-            data.setValueTextColor(Color.BLACK);
             lineChart.setData(data);
         }
     }
@@ -206,7 +206,7 @@ public class DashboardFragment extends Fragment
             lineChart.getData().notifyDataChanged();
             lineChart.notifyDataSetChanged();
         } else {
-            set1 = new LineDataSet(yVals1, "DataSet 1");
+            set1 = new LineDataSet(yVals1, "Curr mth daily spend");
 
             set1.setAxisDependency(YAxis.AxisDependency.LEFT);
             set1.setColor(ColorTemplate.getHoloBlue());
@@ -217,14 +217,10 @@ public class DashboardFragment extends Fragment
             set1.setFillColor(ColorTemplate.getHoloBlue());
             set1.setHighLightColor(Color.rgb(244, 117, 117));
             set1.setDrawCircleHole(false);
-            //set1.setFillFormatter(new MyFillFormatter(0f));
-            //set1.setDrawHorizontalHighlightIndicator(false);
-            //set1.setVisible(false);
-            //set1.setCircleHoleColor(Color.WHITE);
+            set1.setDrawValues(false);
 
-            set2 = new LineDataSet(yVals2, "DataSet 2");
-            set2.setAxisDependency(YAxis.AxisDependency.RIGHT);
-            set2.setColor(Color.RED);
+            set2 = new LineDataSet(yVals2, "Prev mth daily spend");
+            set2.setColor(Color.LTGRAY);
             set2.setCircleColor(Color.GRAY);
             set2.setLineWidth(2f);
             set2.setCircleRadius(3f);
@@ -232,10 +228,9 @@ public class DashboardFragment extends Fragment
             set2.setFillColor(ColorTemplate.colorWithAlpha(Color.RED, 200));
             set2.setDrawCircleHole(false);
             set2.setHighLightColor(Color.rgb(244, 117, 117));
+            set2.setDrawValues(false);
 
             LineData data = new LineData(set1, set2);
-            data.setValueTextColor(Color.BLACK);
-            data.setValueTextSize(9f);
             lineChart.setData(data);
         }
     }
@@ -253,7 +248,7 @@ public class DashboardFragment extends Fragment
             barChart.getData().notifyDataChanged();
             barChart.notifyDataSetChanged();
         } else {
-            set1 = new BarDataSet(yVals1, "The year 2017");
+            set1 = new BarDataSet(yVals1, "Spend Categories");
             set1.setDrawIcons(false);
             set1.setColors(ColorTemplate.VORDIPLOM_COLORS);
             ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
@@ -269,7 +264,7 @@ public class DashboardFragment extends Fragment
     private void setPieChartData(int count, float range) {
 
         ArrayList<PieEntry> entries = ChartData.getPieData(count, range);
-        PieDataSet dataSet = new PieDataSet(entries, "Election Results");
+        PieDataSet dataSet = new PieDataSet(entries, "Weekly spend distribution");
 
         dataSet.setDrawIcons(false);
         dataSet.setSliceSpace(3f);
