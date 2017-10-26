@@ -157,7 +157,6 @@ public class DashboardFragment extends Fragment
         setPieChartData(4, 100);
     }
 
-
     public void setLineData(int count, float range, LineChart lineChart) {
         ArrayList<Entry> values = ChartData.getData(count, range);
 
@@ -183,7 +182,8 @@ public class DashboardFragment extends Fragment
             set1.setDrawCircleHole(false);
             set1.setDrawValues(false);
 
-            ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
+
+            ArrayList<ILineDataSet> dataSets = new ArrayList<>();
             dataSets.add(set1);
             LineData data = new LineData(dataSets);
             lineChart.setData(data);
@@ -250,12 +250,13 @@ public class DashboardFragment extends Fragment
         } else {
             set1 = new BarDataSet(yVals1, "Spend Categories");
             set1.setDrawIcons(false);
-            set1.setColors(ColorTemplate.VORDIPLOM_COLORS);
-            ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
+            set1.setColors(ColorTemplate.LIBERTY_COLORS);
+            ArrayList<IBarDataSet> dataSets = new ArrayList<>();
             dataSets.add(set1);
             BarData data = new BarData(dataSets);
             data.setValueTextSize(10f);
             data.setBarWidth(0.9f);
+            data.setValueTextColor(Color.GRAY);
             barChart.setData(data);
         }
     }
@@ -271,15 +272,15 @@ public class DashboardFragment extends Fragment
         dataSet.setIconsOffset(new MPPointF(0, 40));
         dataSet.setSelectionShift(5f);
 
-        ArrayList<Integer> colors = new ArrayList<Integer>();
-        for (int c : ColorTemplate.VORDIPLOM_COLORS)
+        ArrayList<Integer> colors = new ArrayList<>();
+        for (int c : ColorTemplate.LIBERTY_COLORS)
             colors.add(c);
         dataSet.setColors(colors);
 
         PieData data = new PieData(dataSet);
         data.setValueFormatter(new PercentFormatter());
         data.setValueTextSize(11f);
-        data.setValueTextColor(Color.BLACK);
+        data.setValueTextColor(Color.GRAY);
         pieChart.setData(data);
         pieChart.highlightValues(null);
         pieChart.invalidate();

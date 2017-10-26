@@ -1,6 +1,7 @@
 package com.sreevidya.opal.views;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -38,16 +39,21 @@ public class MyBarChart extends BarChart {
         xAxis.setDrawGridLines(false);
         xAxis.setGranularity(1f);
         xAxis.setLabelCount(7);
+        xAxis.setTextColor(Color.GRAY);
 
         YAxis leftAxis = getAxisLeft();
+        leftAxis.setDrawGridLines(false);
         leftAxis.setLabelCount(8, false);
         leftAxis.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
         leftAxis.setSpaceTop(15f);
         leftAxis.setAxisMinimum(0f);
+        leftAxis.setTextColor(Color.GRAY);
 
         YAxis rightAxis = getAxisRight();
         rightAxis.setDrawGridLines(false);
+        rightAxis.setDrawAxisLine(false);
         rightAxis.setLabelCount(8, false);
+        rightAxis.setDrawLabels(false);
         rightAxis.setSpaceTop(15f);
         rightAxis.setAxisMinimum(0f);
 

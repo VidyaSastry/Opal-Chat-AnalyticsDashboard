@@ -1,6 +1,7 @@
 package com.sreevidya.opal.views;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -35,7 +36,10 @@ public class MyLineChart extends LineChart {
         llXAxis.setTextSize(10f);
 
         XAxis xAxis = getXAxis();
-        xAxis.enableGridDashedLine(10f, 10f, 0f);
+//        xAxis.enableGridDashedLine(10f, 10f, 0f);
+        xAxis.setDrawGridLines(false);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setTextColor(Color.GRAY);
 
         LimitLine ll1 = new LimitLine(80f, "Avg");
         ll1.setLineWidth(1f);
@@ -48,12 +52,11 @@ public class MyLineChart extends LineChart {
         leftAxis.addLimitLine(ll1);
         leftAxis.setAxisMaximum(160f);
         leftAxis.setAxisMinimum(0f);
-        leftAxis.enableGridDashedLine(10f, 10f, 0f);
+        leftAxis.setDrawGridLines(false);
         leftAxis.setDrawZeroLine(false);
+        leftAxis.setTextColor(Color.GRAY);
 
         leftAxis.setDrawLimitLinesBehindData(true);
-
-        getAxisRight().setEnabled(false);
 
         getAxisRight().setEnabled(false);
 

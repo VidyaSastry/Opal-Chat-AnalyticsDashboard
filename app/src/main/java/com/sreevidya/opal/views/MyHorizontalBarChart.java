@@ -1,6 +1,7 @@
 package com.sreevidya.opal.views;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 
 import com.github.mikephil.charting.charts.HorizontalBarChart;
@@ -36,16 +37,20 @@ public class MyHorizontalBarChart extends HorizontalBarChart {
         xl.setDrawAxisLine(true);
         xl.setDrawGridLines(false);
         xl.setGranularity(10f);
+        xl.setTextColor(Color.GRAY);
 
         YAxis yl = getAxisLeft();
-        yl.setDrawAxisLine(true);
-        yl.setDrawGridLines(true);
+        yl.setDrawAxisLine(false);
+        yl.setDrawGridLines(false);
+        yl.setDrawLabels(false);
         yl.setAxisMinimum(0f);
+        yl.setTextColor(Color.GRAY);
 
         YAxis yr = getAxisRight();
         yr.setDrawAxisLine(true);
         yr.setDrawGridLines(false);
         yr.setAxisMinimum(0f);
+        yl.setTextColor(Color.GRAY);
 
         setFitBars(true);
         animateY(2500);

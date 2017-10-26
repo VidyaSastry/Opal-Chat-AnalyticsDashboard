@@ -50,12 +50,13 @@ public class MyPieChart extends PieChart {
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
         l.setOrientation(Legend.LegendOrientation.VERTICAL);
+        l.setTextColor(Color.GRAY);
         l.setDrawInside(false);
         l.setXEntrySpace(7f);
         l.setYEntrySpace(0f);
         l.setYOffset(0f);
 
-        setEntryLabelColor(Color.BLACK);
+        setEntryLabelColor(Color.GRAY);
         setEntryLabelTextSize(12f);
     }
 }
