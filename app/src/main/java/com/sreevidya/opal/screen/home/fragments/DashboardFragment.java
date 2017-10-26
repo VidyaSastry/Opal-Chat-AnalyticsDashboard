@@ -248,7 +248,7 @@ public class DashboardFragment extends Fragment
             barChart.getData().notifyDataChanged();
             barChart.notifyDataSetChanged();
         } else {
-            set1 = new BarDataSet(yVals1, "Spend Categories");
+            set1 = new BarDataSet(yVals1, "");
             set1.setDrawIcons(false);
             set1.setColors(ColorTemplate.LIBERTY_COLORS);
             ArrayList<IBarDataSet> dataSets = new ArrayList<>();

@@ -7,36 +7,60 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="16dp">
 
-    <ImageView
-        android:id="@+id/photo_icon"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="5dp"
-        android:src="@drawable/ic_bot" />
+
 
     <LinearLayout
         android:id="@+id/messageDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="3dp"
-        android:background="@drawable/chat_bubble_left"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingEnd="5dp"
+        android:paddingTop="5dp">
 
-        <TextView
-            android:id="@+id/messageTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textIsSelectable="true"
-            tools:text="Message" />
+        <ImageView
+            android:id="@+id/photo_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_bot" />
 
-        <TextView
-            android:id="@+id/timeTextView"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:textAppearance="?android:textAppearanceSmall" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/usernameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bot"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/timeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginStart="5dp"
+                android:layout_toRightOf="@id/usernameTextView"
+                android:textAppearance="?android:textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/messageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/usernameTextView"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/black"
+                android:textIsSelectable="true"
+                tools:text="Message" />
+
+
+        </RelativeLayout>
+
+
     </LinearLayout>
 
 

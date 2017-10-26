@@ -10,11 +10,9 @@ public class Message {
     private String text;
     private String created;
     private boolean isUser;
-
     Message() {
 
     }
-
     public Message(String text, boolean isUser) {
         this.text = text;
         SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a", Locale.UK);
@@ -40,5 +38,9 @@ public class Message {
 
     public String getCreated() {
         return created;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
     }
 }
