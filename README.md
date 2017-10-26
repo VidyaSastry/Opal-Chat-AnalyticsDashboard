@@ -1,6 +1,15 @@
 # Opal-Chat-AnalyticsDashboard
 An android app built to serve as a personal assistant with interactive chat and an analytics dashboard
 
+Here are the screenshots for the updated UI.
+
+<img src="https://user-images.githubusercontent.com/8974000/32031698-786ae4b8-b9c8-11e7-9fe6-1baeab6cccf9.png" width="400" height="650"> <img src="https://user-images.githubusercontent.com/8974000/32031743-a762fa26-b9c8-11e7-96f4-0504d1e4c6d2.png" height="650"> 
+<img src="https://user-images.githubusercontent.com/8974000/32031754-bb30689a-b9c8-11e7-92bb-49f67225fdf8.png" width="400" height="650"> <img src="https://user-images.githubusercontent.com/8974000/32031767-ca77a71e-b9c8-11e7-9cca-e49949a24883.png" width="400" height="650"> 
+
+<img src="https://user-images.githubusercontent.com/8974000/32031800-ec78fafc-b9c8-11e7-95cd-b39920f66645.png" width="400" height="650"> <img src="https://user-images.githubusercontent.com/8974000/32031801-efcd1b16-b9c8-11e7-939e-dffae8b602a0.png" width="400" height="650">
+
+
+
 Here are the screenshots of the various screens.
 
 <img src="https://user-images.githubusercontent.com/8974000/31873000-f59c4746-b785-11e7-9f08-6f23de1dad36.png" width="400" height="650"> <img src="https://user-images.githubusercontent.com/8974000/31873149-08e2d36e-b787-11e7-8918-458a3414c0e5.png" width="400" height="650"> 
